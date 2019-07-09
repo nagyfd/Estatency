@@ -1,0 +1,518 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+
+<style type="text/css">
+.menutitle{
+cursor:pointer;
+margin-bottom: 5px;
+background-color:#ECECFF;
+color:#000000;
+width:140px;
+padding:2px;
+text-align:center;
+font-weight:bold;
+/*/*/border:1px solid #000000;/* */
+}
+
+.submenu{
+margin-bottom: 0.5em;
+}
+</style>
+
+<script type="text/javascript">
+
+
+var persistmenu="yes" //"yes" or "no". Make sure each SPAN content contains an incrementing ID starting at 1 (id="sub1", id="sub2", etc)
+var persisttype="sitewide" //enter "sitewide" for menu to persist across site, "local" for this page only
+
+if (document.getElementById){ //DynamicDrive.com change
+document.write('<style type="text/css">\n')
+document.write('.submenu{display: none;}\n')
+document.write('</style>\n')
+}
+
+function SwitchMenu(obj){
+	if(document.getElementById){
+	var el = document.getElementById(obj);
+	var ar = document.getElementById("masterdiv").getElementsByTagName("span"); //DynamicDrive.com change
+		if(el.style.display != "block"){ //DynamicDrive.com change
+			for (var i=0; i<ar.length; i++){
+				if (ar[i].className=="submenu") //DynamicDrive.com change
+				ar[i].style.display = "none";
+			}
+			el.style.display = "block";
+		}else{
+			el.style.display = "none";
+		}
+	}
+}
+
+function get_cookie(Name) { 
+var search = Name + "="
+var returnvalue = "";
+if (document.cookie.length > 0) {
+offset = document.cookie.indexOf(search)
+if (offset != -1) { 
+offset += search.length
+end = document.cookie.indexOf(";", offset);
+if (end == -1) end = document.cookie.length;
+returnvalue=unescape(document.cookie.substring(offset, end))
+}
+}
+return returnvalue;
+}
+
+function onloadfunction(){
+if (persistmenu=="yes"){
+var cookiename=(persisttype=="sitewide")? "switchmenu" : window.location.pathname
+var cookievalue=get_cookie(cookiename)
+if (cookievalue!="")
+document.getElementById(cookievalue).style.display="block"
+}
+}
+
+function savemenustate(){
+var inc=1, blockid=""
+while (document.getElementById("sub"+inc)){
+if (document.getElementById("sub"+inc).style.display=="block"){
+blockid="sub"+inc
+break
+}
+inc++
+}
+var cookiename=(persisttype=="sitewide")? "switchmenu" : window.location.pathname
+var cookievalue=(persisttype=="sitewide")? blockid+";path=/" : blockid
+document.cookie=cookiename+"="+cookievalue
+}
+
+if (window.addEventListener)
+window.addEventListener("load", onloadfunction, false)
+else if (window.attachEvent)
+window.attachEvent("onload", onloadfunction)
+else if (document.getElementById)
+window.onload=onloadfunction
+
+if (persistmenu=="yes" && document.getElementById)
+window.onunload=savemenustate
+
+</script>
+
+    <meta charset="utf-8">
+
+    <title>Estatency</title>
+    <meta name="Frank Nagy">
+
+    <link href="/assets/style.css" rel="stylesheet" type="text/css" />
+	
+<!-- TESTINGG -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
+.w3-sidebar {
+  z-index: 3;
+  width: 250px;
+  top: 43px;
+  bottom: 0;
+  height: inherit;
+}
+</style>
+
+
+<!-- End TESTING -->
+    
+
+  </head>
+<!-- Hidden $ sign and 'by' to display in word doc -->
+    <span id='by' style="display:none;" > by </span>
+    <span id='on' style="display:none;" > on </span>
+    <span id='$' style="display:none;">$</span>
+    <span id='newline' style="display:none;"><br></span>
+    <span id='dueDate' style="display:none;">Due Date: </span>
+    <span id='curePeriod' style="display:none;">Cure Period: </span>
+
+
+    
+<!-- Begin start of HTML page and body -->
+
+
+<body>
+<div class="logo2"> 
+<br>
+<img src="logo2.jpeg" alt="">
+</div>
+
+<div class="logo1"> 
+<img src="logo1.jpeg" alt="">
+</div>
+
+<!-- Navbar -->
+<div class="navbar">
+<div class="w3-top">
+  <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+    <a href="index.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Home</a>
+	<a href="index.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Login/Register</a>
+	<a href="AboutMe.html" class="w3-bar-item w3-button w3-theme-l1">About Me</a>
+    <a href="Products.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Products</a>
+    <a href="Why-Estatency.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Why Estatency</a>
+	
+  </div>
+</div>
+</div>
+
+
+
+<div  style="background-color:#00FFFF;">
+
+<h1 class ="estatency"> <a href="index.html">Estatency</a>
+
+</h1>
+<h1 class ="purchase" width="200px">
+Enter The Following Information From The Purchase Agreement Document
+</h1>
+  <form>
+    <label><b>SELLER:</b></label>
+    <input type="text" name="seller" id="seller"><br><br>
+    <label><b>BUYER:</b></label>
+    <input type="text" name="buyer" id="buyer"><br><br>
+    <label><b>PURCHASE PRICE: ($)</b></label>
+    <input type="text" name="pp" id="pp"><br><br>
+    <label><b>EARNEST MONEY DEPOSIT: ($)</b></label>
+    <input type="text" name="emd" id="emd"><span><b>   Date:</b></span>
+    <input type="text" name="emdDate" id="emdDate"><br><br>
+
+
+    
+    <label><b>ADDITIONAL EARNEST MONEY DEPOSIT: ($)</b></label>
+    <input type="text" name="aemd" id="aemd"><span><b>   Date:</b></span>
+    <input type="text" name="aemdDate" id="aemdDate"><br><br>
+    
+    
+    <label><b>INSPECTION PERIOD<span><b>   (Date):</b></span></b></label>
+    <input type="text" name="ip" id="ip"><br><br>
+    <label><b>EXTENSION OF INSPECTION PERIOD<span><b>   (Date):</b></span></b></label>
+    <input type="text" name="eoip" id="eoip"><br><br>
+    <label><b>PERMITTING PERIOD<span><b>   (Date):</b></span></b></label>
+    <input type="text" name="pp2" id="pp2"><br><br>
+    <label><b>EXTENSION OF PERMITTING PERIOD<span><b>   (Date):</b></span></b></label>
+    
+    <input type="text" name="eopp" id="eopp"><br><br>
+    <label><b>OTHER ADDITIONAL EARNEST MONEY DEPOSITS:  ($)</b></label>
+    <input type="text" name="oaemd" id="oaemd"><span><b>   Date:</b></span>
+    <input type="text" name="oaemdDate" id="oaemdDate"><br><br>
+    
+     <label><b>OUTSIDE CLOSING DATE:</b></label>
+    <input type="text" name="ocd" id="ocd"><br><br>
+     <label><b>BROKERS:</b></label>
+    <input type="text" name="b" id="b"><br><br>
+     <label><b>EFFECTIVE DATE OF CONTRACT:</b></label>
+    <input type="text" name="edoc" id="edoc"><br><br>
+    
+    
+     <label><b>ESCROW AGENT (INCLUDE CONTACT INFORMATION)  Name:</b></label>
+    <input type="text" name="ea" id="ea">
+    <span><b>   Address:</b></span>
+    <input type="text" name="eaddress" id="eaddress">
+    <span><b>   City, State and Zip:</b></span>
+    <input type="text" name="ecity" id="ecity">
+    <span><b>   Phone Number:</b></span>
+    <input type="text" name="ephone" id="ephone">
+    <span><b>   Fax:</b></span>
+    <input type="text" name="efax" id="efax">
+    <br><br>
+    
+    
+     <label><b>PROJECT LOCATION:</b></label>
+    <input type="text" name="pl" id="pl"><span><b>   Address:</b></span>
+    <input type="text" name="address" id="address">
+    <span><b>   City, State and Zip:</b></span>
+    <input type="text" name="city" id="city">
+    <span><b>   County:</b></span>
+    <input type="text" name="county" id="county"><br><br>
+    
+     <label><b>SELLER MATERIALS:</b></label>
+    <input type="text" name="sm" id="sm"><br><br>
+    
+    
+     <label><b>TITLE (Name):</b></label>
+    <input type="text" name="t" id="t">
+    <span><b>   Date:</b></span>
+    <input type="text" name="tDate" id="tDate">
+    <br><br>
+    
+     <label><b>TITLE OBJECTIONS (Due Date):</b></label>
+    <input type="text" name="to" id="to"><span><b>   Cure Period:</b></span>
+    <input type="text" name="cure" id="cure">
+    <br><br>
+    
+    
+     <label><b>SURVEY OBJECTIONS (Due Date):</b></label>
+    <input type="text" name="so" id="so"><span><b>   Cure Period:</b></span>
+    <input type="text" name="sCure" id="sCure">
+    <br><br>
+    
+    
+     <label><b>CLOSING DATE:</b></label>
+    <input type="text" name="cd" id="cd"><br><br>
+     <label><b>NOTES (ADDITIONAL INFORMATION):</b></label>
+    <input type="text" name="n" id="n"><br><br>
+    
+
+  </form><br><br><br>
+  <input class ="subButton" type="submit" onclick="showInput();showSub();"><br>
+  <p id="sub" style="color:green; display:none;">
+    Succesfully Submitted Information
+  </p>
+
+
+  <!-- The HTML to export as downloadable Word .doc, also set display:none-->
+  <div id="page-content" class="panel panel-default" style="width:2056px">
+    <div class="panel-body">
+
+      <div id="show" style="display:none;">
+        <h1 align="center">Transaction Summary</h1>
+        <span><b>SELLER </b> </span>
+        <div class="center" id='sell' style="margin: 0 auto; display: inline-block;"></div><br>
+
+        <span><b>BUYER </b> </span>
+        <div class="center" id='buy' style="margin: 0 auto; display: inline-block;"></div><br>
+
+        <span><b>PURCHASE PRICE </b> </span>
+        <div class="center" id='pprice' style="margin: 0 auto; display: inline-block;"></div><br>
+
+        <span><b>EARNEST MONEY DEPOSIT </b> </span>
+        <div class="center" id='emd1' style="margin: 0 auto; display: inline-block;"></div><br>
+
+        <span><b>ADDITIONAL EARNEST MONEY DEPOSIT </b> </span>
+        <div class="center" id='aemd1' style="margin: 0 auto; display: inline-block;"></div><br>
+
+        <span><b>INSPECTION PERIOD </b> </span>
+        <div class="center" id='ip1' style="margin: 0 auto; display: inline-block;"></div><br>
+
+        <span><b>EXTENSION OF INSPECTION PERIOD </b> </span>
+        <div class="center" id='eoip1' style="margin: 0 auto; display: inline-block;"></div><br>
+
+        <span><b>PERMITTING PERIOD </b> </span>
+        <div class="center" id='pp3' style="margin: 0 auto; display: inline-block;"></div><br>
+
+        <span><b>EXTENSION OF PERMITTING PERIOD </b> </span>
+        <div class="center" id='eopp1' style="margin: 0 auto; display: inline-block;"></div><br>
+
+        <span><b>OTHER ADDITIONAL EARNEST MONEY DEPOSITS </b> </span>
+        <div class="center" id='oaemd1' style="margin: 0 auto; display: inline-block;"></div><br>
+        
+        <span><b>OUTSIDE CLOSING DATE </b> </span>
+        <div class="center" id='ocd1' style="margin: 0 auto; display: inline-block;"></div><br>
+        
+        <span><b>BROKERS </b> </span>
+        <div class="center" id='b1' style="margin: 0 auto; display: inline-block;"></div><br>
+        
+        <span><b>EFFECTIVE DATE OF CONTRACT </b> </span>
+        <div class="center" id='edoc1' style="margin: 0 auto; display: inline-block;"></div><br>
+        
+        <span><b>ESCROW AGENT (INCLUDE CONTACT INFORMATION) </b> </span>
+        <div class="center" id='ea1' style="margin: 0 auto; display: inline-block;"></div><br>
+        
+        <span><b>PROJECT LOCATION </b> </span>
+        <div class="center" id='pl1' style="margin: 0 auto; display: inline-block;"></div><br>
+        
+        <span><b>SELLER MATERIALS </b> </span>
+        <div class="center" id='sm1' style="margin: 0 auto; display: inline-block;"></div><br>
+        
+        <span><b>TITLE (WHO ORDERS AND PAYS) </b> </span>
+        <div class="center" id='t1' style="margin: 0 auto; display: inline-block;"></div><br>
+        
+        <span><b>TITLE OBJECTIONS </b> </span>
+        <div class="center" id='to1' style="margin: 0 auto; display: inline-block;"></div><br>
+        
+        <span><b>SURVEY OBJECTIONS </b> </span>
+        <div class="center" id='so1' style="margin: 0 auto; display: inline-block;"></div><br>
+        
+        <span><b>CLOSING DATE </b> </span>
+        <div class="center" id='cd1' style="margin: 0 auto; display: inline-block;"></div><br>
+        
+        <span><b>NOTES (ADDITIONAL INFORMATION) </b> </span>
+        <div class="center" id='n1' style="margin: 0 auto; display: inline-block;"></div><br>
+
+      </div>
+    </div>
+
+
+  </div>
+
+<br>
+  <div class="col-xs-5">
+    <a class="btn jquery-word-export" href="javascript:void(0)" onclick="showHide();">
+                    <span class="word-icon">W</span>
+                    Export as .doc
+                </a>
+  </div>
+  
+ 
+</div> <!-- background -->
+
+
+
+<!-- End HTML -->
+
+
+    <script language="JavaScript">
+      function showSub() {
+        var x = document.getElementById("sub");
+        if (x.style.display === "none") {
+          x.style.display = "block";
+        } else {
+          x.style.display = "none";
+        }
+      }
+
+      function showHide() {
+        var x = document.getElementById("show");
+        if (x.style.display === "none") {
+          x.style.display = "block";
+        } else {
+          x.style.display = "none";
+        }
+      }
+
+      function showInput() {
+        document.getElementById('sell').innerHTML =
+          document.getElementById("seller").value;
+        document.getElementById('buy').innerHTML =
+          document.getElementById("buyer").value;
+          
+        document.getElementById('pprice').innerHTML =
+                  document.getElementById('$').innerHTML +
+          document.getElementById("pp").value;
+          
+          //EMD
+        document.getElementById('emd1').innerHTML =
+        document.getElementById('$').innerHTML +
+          document.getElementById("emd").value +
+         document.getElementById('by').innerHTML + 
+        document.getElementById('emdDate').value;
+        //AEMD
+         document.getElementById('aemd1').innerHTML =
+          document.getElementById('$').innerHTML +
+          document.getElementById("aemd").value +
+          document.getElementById('by').innerHTML + 
+        document.getElementById('aemdDate').value;
+
+       
+        document.getElementById('ip1').innerHTML =
+          document.getElementById("ip").value;
+        document.getElementById('eoip1').innerHTML =
+          document.getElementById("eoip").value;
+        document.getElementById('pp3').innerHTML =
+          document.getElementById("pp2").value;
+        document.getElementById('eopp1').innerHTML =
+          document.getElementById("eopp").value;
+          
+          //OAEMD
+        document.getElementById('oaemd1').innerHTML =
+         document.getElementById('$').innerHTML +
+          document.getElementById("oaemd").value +
+          document.getElementById('by').innerHTML + 
+        document.getElementById('oaemdDate').value;
+          
+          document.getElementById('ocd1').innerHTML =
+          document.getElementById("ocd").value;
+        document.getElementById('b1').innerHTML =
+          document.getElementById("b").value;
+        document.getElementById('edoc1').innerHTML =
+          document.getElementById("edoc").value;
+          
+          // Escrow Agent
+        document.getElementById('ea1').innerHTML =
+          document.getElementById("ea").value + 
+           document.getElementById('newline').innerHTML +
+          document.getElementById("eaddress").value +
+           document.getElementById('newline').innerHTML +
+          document.getElementById("ecity").value +
+                     document.getElementById('newline').innerHTML +
+          document.getElementById("ephone").value +
+                     document.getElementById('newline').innerHTML +
+          document.getElementById("efax").value;
+          
+          
+          // Project Location
+        document.getElementById('pl1').innerHTML =
+          document.getElementById("pl").value +
+                 document.getElementById('newline').innerHTML +
+          document.getElementById("address").value +
+                      document.getElementById('newline').innerHTML +
+                            document.getElementById("city").value +
+                     document.getElementById('newline').innerHTML +
+                               document.getElementById("county").value;
+
+
+          
+          document.getElementById('sm1').innerHTML =
+          document.getElementById("sm").value;
+          
+          // Title
+        document.getElementById('t1').innerHTML =
+          document.getElementById("t").value + 	               document.getElementById('on').innerHTML + 
+           document.getElementById("tDate").value;
+          
+          // Title Objections
+        document.getElementById('to1').innerHTML =
+                  document.getElementById('dueDate').innerHTML +
+          document.getElementById("to").value +
+                document.getElementById('newline').innerHTML + document.getElementById('curePeriod').innerHTML +
+                          document.getElementById("cure").value;
+
+          // Survery Objections
+        document.getElementById('so1').innerHTML =
+                          document.getElementById('dueDate').innerHTML +
+          document.getElementById("so").value + 
+            document.getElementById('newline').innerHTML +
+                              document.getElementById('curePeriod').innerHTML +
+                      document.getElementById("sCure").value;
+
+          
+        document.getElementById('cd1').innerHTML =
+          document.getElementById("cd").value;
+          document.getElementById('n1').innerHTML =
+          document.getElementById("n").value;
+          
+          
+
+
+      }
+
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+
+
+    </script>
+    <script src="FileSaver.js"></script>
+    <script src="jquery.wordexport.js"></script>
+    <script src="/js/scripts.js"></script>
+    
+ <footer id="myFooter">
+    <div class="w3-container w3-theme-l2 w3-padding-32">
+      <h4><p>Owner: Porter Stanley</p>
+  <p>Contact information: <a href="mailto:porter@example.com">
+  Porter@example.com</a>.</p></h4>
+  
+    </div>
+
+    <div class="w3-container w3-theme-l1">
+<p>Created by Frank Nagy</p>    </div>
+  </footer>
+  
+ <footer>
+  
+</footer>
+
+  </body>
+
+</html>

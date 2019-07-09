@@ -1,0 +1,69 @@
+.word-icon {
+  font-family: "Helvetica", sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  background-color: #0054a6;
+  color: white;
+  padding: 2px 5px;
+  vertical-align: middle;
+}
+.center {
+     text-align: left;
+}
+.estatency {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    text-align: center;
+}
+.purchase {
+   text-align: center;
+}
+.subButton {
+  display: left;
+  float: left;
+}
+label{
+   display: inline-block;
+  width: 500px;
+  text-align: right;
+}
+input {
+ margin-top: 5px;
+    margin-bottom: 5px;
+    display:inline-block; 
+    *display: inline;     
+    zoom:1;              
+    vertical-align:middle;
+    margin-left:20px
+}
+footer {
+     text-align: center;
+}
+/* HEADER section ========================== */
+ 
+
+.logo2 img {
+	position: absolute;
+    left: 20px;
+    top: 60px;
+  
+  display: block;
+  max-width:200px;
+  max-height:112px;
+  width: auto;
+  height: auto;
+
+}
+
+.logo1 img {
+	position: absolute;
+    right: 20px;
+    bottom: -738px;
+  
+  display: block;
+  max-width:300px;
+  max-height:168px;
+  width: auto;
+  height: auto;
+
+}
+
